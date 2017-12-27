@@ -101,6 +101,9 @@ Ready to run in production? Please [check our deployment guides](http://www.phoe
   `heroku config:set POOL_SIZE=18`
 
   `mix phx.gen.secret`
-  `heroku config:set SECRET_KEY_BASE="wCNtFKpht7R3xScjKJMTmnphu2j+hIAVNNjFDpitfH1VCSaI3eBFSOlha0cNNd8M"`
+  `heroku config:set SECRET_KEY_BASE=".."`
 
-  5. Commit updated files (config/prod.exs and lib/app_web/channels/user_socket.ex)
+  5. Add Procfile
+  `echo "web: MIX_ENV=prod mix phoenix.server" > Procfile`
+
+  6. Commit updated files (config/prod.exs and lib/app_web/channels/user_socket.ex)
