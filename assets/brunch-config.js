@@ -62,6 +62,7 @@ exports.config = {
        $: 'jquery',
        jQuery: 'jquery',
        Tether: 'tether',
+       Popper: 'popper.js',
        bootstrap: 'bootstrap'
     }
   }
