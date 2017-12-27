@@ -1,0 +1,5 @@
+<%= for app <- @gfp_applications do %>
+  Webhook URL : <%= app.webhook_url %>
+<% end %>
+<br/>
+<%= link('create', to: gfp_application_path(@conn, :new), class: 'btn') %>

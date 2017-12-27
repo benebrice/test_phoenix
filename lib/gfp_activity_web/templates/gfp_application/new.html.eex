@@ -1,0 +1,7 @@
+<%= form_for @changeset, gfp_application_path(@conn, :create), fn f -> %>
+  <label>
+    Webhook URL: <%= text_input f, :webhook_url %>
+  </label>
+
+  <%= submit "Submit" %>
+<% end %>
