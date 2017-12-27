@@ -107,3 +107,7 @@ Ready to run in production? Please [check our deployment guides](http://www.phoe
   `echo "web: MIX_ENV=prod mix phoenix.server" > Procfile`
 
   6. Commit updated files (config/prod.exs and lib/app_web/channels/user_socket.ex)
+
+  7. Deploy time!
+  `git push heroku master`
+  `heroku run "POOL_SIZE=2 mix ecto.migrate"`
