@@ -87,4 +87,20 @@ Ready to run in production? Please [check our deployment guides](http://www.phoe
 
   [http://adanselm.github.io/programming/distributed/system/elixir/json/phoenix/api/2015/06/16/obese-bird-json.html](http://adanselm.github.io/programming/distributed/system/elixir/json/phoenix/api/2015/06/16/obese-bird-json.html)
 
-  
+## Heroku deployment
+  1. Creating the Heroku Application
+`heroku create --buildpack "https://github.com/HashNuke/heroku-buildpack-elixir.git"`
+
+  2. Adding the Phoenix Static Buildpack
+`heroku buildpacks:add https://github.com/gjaldon/heroku-buildpack-phoenix-static.git`
+
+  3. Add Postgres
+  `heroku addons:create heroku-postgresql:hobby-dev`
+
+  4. Add environment variables
+  `heroku config:set POOL_SIZE=18`
+
+  `mix phx.gen.secret`
+  `heroku config:set SECRET_KEY_BASE="wCNtFKpht7R3xScjKJMTmnphu2j+hIAVNNjFDpitfH1VCSaI3eBFSOlha0cNNd8M"`
+
+  5. Commit updated files (config/prod.exs and lib/app_web/channels/user_socket.ex)
