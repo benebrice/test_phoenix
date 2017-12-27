@@ -35,4 +35,7 @@ defmodule GfpActivityWeb.UserSocket do
   #
   # Returning `nil` makes this socket anonymous.
   def id(_socket), do: nil
+
+  ## Channels
+  channel "room:*", GfpActivityWeb.RoomChannel
 end

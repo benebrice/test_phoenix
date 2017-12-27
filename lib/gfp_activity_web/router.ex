@@ -15,7 +15,8 @@ defmodule GfpActivityWeb.Router do
 
   scope "/", GfpActivityWeb do
     pipe_through :browser # Use the default browser stack
-
+    get "/", GfpApplicationController, :index
+    
     resources "/gfp_applications", GfpApplicationController
   end
 

@@ -3,3 +3,6 @@
 <% end %>
 <br/>
 <%= link('create', to: gfp_application_path(@conn, :new), class: 'btn') %>
+
+<div id="messages"></div>
+<input id="chat-input" type="text"></input>
