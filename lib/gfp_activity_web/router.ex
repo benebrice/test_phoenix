@@ -16,20 +16,19 @@ defmodule GfpActivityWeb.Router do
   scope "/", GfpActivityWeb do
     pipe_through :browser # Use the default browser stack
     get "/", GfpApplicationController, :index
-    
+
     resources "/gfp_applications", GfpApplicationController
   end
 
-  scope "/api", GfpActivity do
+  scope "/api", GfpActivityWeb, as: :api do
     pipe_through :api
-    scope "/v1", V1, as: :v1 do
-      resources "/categories", CategoryController
-      resources "/activities", ActivityController
+    scope "/v1", Api.V1, as: :v1 do
+      resources "/gfp_applications", GfpApplicationController, only: [:index, :show]
+    end
+
+    scope "/v2", Api.V2, as: :v2 do
+      resources "/gfp_applications", GfpApplicationController, only: [:index, :show]
     end
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", GfpActivityWeb do
-  #   pipe_through :api
-  # end
 end
